@@ -359,7 +359,7 @@ async function closeModal() {
 }
 
 function newMap(style, selection, center, zoom) {
-    mapboxgl.accessToken = 'sk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNjZzenc4cDFhcGUza3A0azUzbXVuNWYifQ.fjnUEjKUqcBJv5siZzUAlQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNjZ0ZDBqODBqa20zYm5ueGNyZDQ2cjEifQ.ydT-xJIzHKorhFa7wiZtCw';
     map = new mapboxgl.Map({
         container: 'map',
         style: style,
