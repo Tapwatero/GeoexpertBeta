@@ -213,12 +213,12 @@ var isoCountries = {
 };
 
 const maps = {
-    '00': 'mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm',
-    '10': 'mapbox://styles/tapwatero/cl54dv5qx006m14mqg5r188s7',
-    '20': 'mapbox://styles/tapwatero/cl52r8olj009y14ogwweppj0v',
-    '01': 'mapbox://styles/tapwatero/cl5579qme004o16p3hne809co',
-    '11': 'mapbox://styles/tapwatero/cl554qkz8007c15pdk5jogn1t',
-    '21': 'mapbox://styles/tapwatero/cl5554cdb005h17p6ub8sye0n'
+    '00': 'mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true?optimize=true',
+    '10': 'mapbox://styles/tapwatero/cl54dv5qx006m14mqg5r188s7?optimize=true',
+    '20': 'mapbox://styles/tapwatero/cl52r8olj009y14ogwweppj0v?optimize=true',
+    '01': 'mapbox://styles/tapwatero/cl5579qme004o16p3hne809co?optimize=true',
+    '11': 'mapbox://styles/tapwatero/cl554qkz8007c15pdk5jogn1t?optimize=true',
+    '21': 'mapbox://styles/tapwatero/cl5554cdb005h17p6ub8sye0n?optimize=true'
 }
 
 

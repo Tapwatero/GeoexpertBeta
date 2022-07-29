@@ -6,12 +6,12 @@
       <title>Join local JSON data with vector tile geometries</title>
       <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
       <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
-      <link rel="stylesheet" href="/GeoexpertBeta/css/styles.css">
+      <link rel="stylesheet" href="/css/styles.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-      <script src="/GeoexpertBeta/js/main.js"></script>
-      <script src="/GeoexpertBeta/js/scoreManager.js"></script>
-      <script src="/GeoexpertBeta/js/confetti.js"></script>
-      <script src="/GeoexpertBeta/js/timer.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/scoreManager.js"></script>
+      <script src="/js/confetti.js"></script>
+      <script src="/js/timer.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
       <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
       <style>
@@ -32,48 +32,48 @@
       <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="gameAttempt(this.value, 13)" autofocus>
       <div id="info-wrapper">
          <div id="info">
-           <div class="score">0/13</div>
-           <div class="divider">-</div>
-           <div class="timer">00:00</div>
+            <div class="score">0/13</div>
+            <div class="divider">-</div>
+            <div class="timer">00:00</div>
          </div>
-       </div>
-     <div id="shadow"></div>
-     <div id="modal">
-       <div class="settings">
-         <h1 class="title">Geoexpert World Settings</h1>
-         <hr class="modal-divider">
-   
-         <div class="select">
-           <select class="theme-select">
-             <option value="0">Sky</option>
-             <option value="1">Light</option>
-             <option value="2">Dark</option>
-           </select>
-           <h1 class="theme-label">Theme:</h1>
+      </div>
+      <div id="shadow"></div>
+      <div id="modal">
+         <div class="settings">
+            <h1 class="title">Geoexpert</h1>
+            <hr class="modal-divider">
+            <div class="inputs">
+              <label class="theme-label" for="">
+                Theme:
+                <select class="theme-select">
+                   <option value="0">Sky</option>
+                   <option value="1">Light</option>
+                   <option value="2">Dark</option>
+                </select>
+             </label>
+               <label class="type-label" for="">
+                  Type:
+                  <select class="type-select">
+                     <option value="0">Flat</option>
+                     <option value="1">Globe</option>
+                  </select>
+               </label>
+               <label class="timer-label" for="">
+                  Timer:
+                  <select class="timer-select">
+                     <option value="0">Enabled</option>
+                     <option value="1">Disabled</option>
+                  </select>
+               </label>
+               <hr class="modal-divider">
+               <div class="btn-container">
+                <button type="button" onclick="closeModal()" class="start-btn">Start</button>
+                </div>
+            </div>
          </div>
-         
-         <div class="select">
-          <select class="type-select">
-            <option value="0">Flat</option>
-            <option value="1">Globe</option>
-          </select>
-          <h1 class="theme-label">Map Type:</h1>
-        </div>
-        
-        <div class="select">
-        <label class="switch">
-          <input id="timer-switch" checked type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <h1 class="timer-label">Timer Enabled:</h1>
-       </div>
-       <hr class="modal-divider">
-       <div id="btn"><span onclick="closeModal()" class="btn-span"><a href="#"></a></span></div>
-       </div>
-     </div>
-     </div>
+      </div>
       <script>
-         newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm", "south-america", [-65, -27.5], 2.5);
+         newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true", "south-america", [-65, -27.5], 2.5);
       </script>
    </body>
 </html>
