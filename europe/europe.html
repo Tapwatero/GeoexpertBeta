@@ -32,46 +32,46 @@
     <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="gameAttempt(this.value, 42)" autofocus>
     <div id="info-wrapper">
       <div id="info">
-        <div class="score">0/42</div>
+        <div class="score">0/18</div>
         <div class="divider">-</div>
         <div class="timer">00:00</div>
       </div>
     </div>
-    <div id="shadow"></div>
-    <div id="modal">
-      <div class="settings">
-        <h1 class="title">Geoexpert World Settings</h1>
-        <hr class="modal-divider">
-
-        <div class="select">
-          <select class="theme-select">
-            <option value="0">Sky</option>
-            <option value="1">Light</option>
-            <option value="2">Dark</option>
-          </select>
-          <h1 class="theme-label">Theme:</h1>
-        </div>
-        
-        <div class="select">
-         <select class="type-select">
-           <option value="0">Flat</option>
-           <option value="1">Globe</option>
-         </select>
-         <h1 class="theme-label">Map Type:</h1>
-       </div>
-       
-       <div class="select">
-       <label class="switch">
-         <input id="timer-switch" checked type="checkbox">
-         <span class="slider round"></span>
-       </label>
-       <h1 class="timer-label">Timer Enabled:</h1>
-      </div>
+  <div id="shadow"></div>
+  <div id="modal">
+    <div class="settings">
+      <h1 class="title">Geoexpert World Settings</h1>
       <hr class="modal-divider">
-      <div id="btn"><span onclick="closeModal()" class="btn-span"><a href="#"></a></span></div>
+
+      <div class="select">
+        <select class="theme-select">
+          <option value="0">Sky</option>
+          <option value="1">Light</option>
+          <option value="2">Dark</option>
+        </select>
+        <h1 class="theme-label">Theme:</h1>
       </div>
+      
+      <div class="select">
+       <select class="type-select">
+         <option value="0">Flat</option>
+         <option value="1">Globe</option>
+       </select>
+       <h1 class="theme-label">Map Type:</h1>
+     </div>
+     
+     <div class="select">
+     <label class="switch">
+       <input id="timer-switch" checked type="checkbox">
+       <span class="slider round"></span>
+     </label>
+     <h1 class="timer-label">Timer Enabled:</h1>
     </div>
+    <hr class="modal-divider">
+    <div id="btn"><span onclick="closeModal()" class="btn-span"><a href="#"></a></span></div>
     </div>
+  </div>
+  </div>
     <script>
       newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm", "europe", [20, 57], 3);
     </script>
