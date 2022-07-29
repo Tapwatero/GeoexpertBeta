@@ -269,8 +269,16 @@ function getIndex(code, level) {
 
 function gameAttempt(query, maxScore) {
     let countryCode = countriesMap[query.toLowerCase()];
-    if (countryCode == null || !currentMap.includes(countryCode)) return
 
+
+    if (countryCode == null) {
+        return;
+    }
+    
+    if (!currentMap.includes(countryCode)) {
+        return;
+    }
+    
     document.getElementById("query").value = ""; // Reset input in DOM
 
     if (['20', '21', '10', '11'].includes(selectedMap) && storedSelection != "world") {
@@ -357,7 +365,7 @@ async function closeModal() {
 }
 
 function newMap(style, selection, center, zoom) {
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNjZ0ZDBqODBqa20zYm5ueGNyZDQ2cjEifQ.ydT-xJIzHKorhFa7wiZtCw';
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNTFmbGJ1YjA1YTEza3BwZDBiaGlodWEifQ.keN2QtEEire6BDUyJZr0RA';
     map = new mapboxgl.Map({
         container: 'map',
         style: style,
