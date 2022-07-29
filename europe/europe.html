@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Join local JSON data with vector tile geometries</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/main.js"></script>
+    <script src="/js/scoreManager.js"></script>
+    <script src="/js/confetti.js"></script>
+    <script src="/js/timer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="gameAttempt(this.value, 42)" autofocus>
+    <div id="info-wrapper">
+      <div id="info">
+        <div class="score">0/42</div>
+        <div class="divider">-</div>
+        <div class="timer">00:00</div>
+      </div>
+    </div>
+    <div id="shadow"></div>
+    <div id="modal">
+      <div class="settings">
+        <h1 class="title">Geoexpert World Settings</h1>
+        <hr class="modal-divider">
+
+        <div class="select">
+          <select class="theme-select">
+            <option value="0">Sky</option>
+            <option value="1">Light</option>
+            <option value="2">Dark</option>
+          </select>
+          <h1 class="theme-label">Theme:</h1>
+        </div>
+        
+        <div class="select">
+         <select class="type-select">
+           <option value="0">Flat</option>
+           <option value="1">Globe</option>
+         </select>
+         <h1 class="theme-label">Map Type:</h1>
+       </div>
+       
+       <div class="select">
+       <label class="switch">
+         <input id="timer-switch" checked type="checkbox">
+         <span class="slider round"></span>
+       </label>
+       <h1 class="timer-label">Timer Enabled:</h1>
+      </div>
+      <hr class="modal-divider">
+      <div id="btn"><span onclick="closeModal()" class="btn-span"><a href="#"></a></span></div>
+      </div>
+    </div>
+    </div>
+    <script>
+      newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm", "europe", [20, 57], 3);
+    </script>
+  </body>
+</html>
