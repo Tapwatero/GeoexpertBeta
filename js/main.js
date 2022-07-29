@@ -270,7 +270,9 @@ function getIndex(code, level) {
 function gameAttempt(query, maxScore) {
     let countryCode = countriesMap[query.toLowerCase()];
 
-    if (!currentMap.includes(countryCode)) return
+    if (currentMap.includes(countryCode)) {
+        return;
+    }
 
 
     document.getElementById("query").value = ""; // Reset input in DOM
