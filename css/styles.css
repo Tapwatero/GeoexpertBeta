@@ -123,11 +123,12 @@
 	border-top: none;
 	height: 0.25vh !important; 
 	width: 100% !important;
+	margin: 8px 0px 0px;
 }
 
 .title {
 	font-size: 2rem;
-	margin-top: 1vh;
+	margin-top: 2vh;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
 	font-weight: 500 !important;
@@ -194,6 +195,8 @@
 }
 
 .start-btn {
+	font-size: 1.75em;
+    padding: 0.75rem;
 	font-size: 2.25em;
 	width: 7em;
 	border-radius: 2vh;
