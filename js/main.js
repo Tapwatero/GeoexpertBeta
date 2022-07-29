@@ -269,26 +269,19 @@ function getIndex(code, level) {
 
 function gameAttempt(query, maxScore) {
     let countryCode = countriesMap[query.toLowerCase()];
-    if (getIndex(countryCode, 1) != -1 || !currentMap.includes(countryCode) ) {
-        return;
-    }
-
-    
-
-
-
+    if (countryCode == null && !currentMap.includes(countryCode)) return
 
     document.getElementById("query").value = ""; // Reset input in DOM
 
     if (['20', '21', '10', '11'].includes(selectedMap) && storedSelection != "world") {
-        data.splice(getIndex(countriesMap[countryCode], 3), 1);
+        data.splice(getIndex(countriesMap[query.toLowerCase()], 3), 1);
     }
 
     data.push({
         code: countryCode,
         level: 1
     })
-    delete countriesMap[countryCode]
+    delete countriesMap[query.toLowerCase()]
 
 
 
