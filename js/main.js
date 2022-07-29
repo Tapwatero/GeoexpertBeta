@@ -269,10 +269,13 @@ function getIndex(code, level) {
 
 function gameAttempt(query, maxScore) {
     let countryCode = countriesMap[query.toLowerCase()];
-
-    if (currentMap.includes(countryCode)) {
+    if (getIndex(countryCode, 1) != -1 || !currentMap.includes(countryCode) ) {
         return;
     }
+
+    
+
+
 
 
     document.getElementById("query").value = ""; // Reset input in DOM
@@ -361,7 +364,7 @@ async function closeModal() {
 }
 
 function newMap(style, selection, center, zoom) {
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNjZ0ZDBqODBqa20zYm5ueGNyZDQ2cjEifQ.ydT-xJIzHKorhFa7wiZtCw';
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNTFmbGJ1YjA1YTEza3BwZDBiaGlodWEifQ.keN2QtEEire6BDUyJZr0RA';
     map = new mapboxgl.Map({
         container: 'map',
         style: style,
