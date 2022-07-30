@@ -55,7 +55,7 @@
 	width: fit-content;
 	border-bottom-left-radius: 2.5vh;
 	border-bottom-right-radius: 2.5vh;
-    padding: 0.8vw;
+    padding: 0.8rem;
 	gap: 1vw;
 }
 
@@ -122,12 +122,12 @@
 	opacity: 1;
 	border-top: none;
 	width: 100% !important;
-	padding: 0.075rem;
+	padding: 0.1rem;
 }
 
 .title {
 	font-size: 2rem;
-	margin-top: 1rem;
+	margin-top: 2vh;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
 	font-weight: 500 !important;
@@ -190,14 +190,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 1.25rem;
-	margin-top: -1.25rem;
+	margin-bottom: 2rem;
 }
 
 .start-btn {
-    padding: 0.175rem;
-	font-size: 1.75rem;
-	width: 15rem;
+	font-size: 1.75em;
+    padding: 0.75rem;
+	font-size: 2.25em;
+	width: 7em;
 	border-radius: 2vh;
 	border: none;
 	outline: none;
