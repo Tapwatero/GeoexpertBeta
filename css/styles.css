@@ -7,6 +7,7 @@
 
 
 #query {
+	text-transform: capitalize;
 	position: absolute;
 	bottom: 10%;
 	font-family: 'Roboto', sans-serif;
@@ -121,7 +122,7 @@
 	background-color: whitesmoke;
 	opacity: 1;
 	border-top: none;
-	height: 0.25vh !important; 
+	height: 0.1rem !important; 
 	width: 100% !important;
 	margin: 8px 0px 0px;
 }
@@ -172,10 +173,12 @@
 
 .theme-select {
 	margin-left: 2vh;
+	margin-top: 1rem;
 }
 
 .timer-select {
 	margin-left: 3.5vh;
+	margin-bottom: 0rem;
 }
 
 .fade {
@@ -191,13 +194,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 }
 
 .start-btn {
 	font-size: 1.75em;
-    padding: 0.75rem;
-	font-size: 2.25em;
+    padding: 0.5rem;
+	font-size: 2.25rem;
 	width: 7em;
 	border-radius: 2vh;
 	border: none;
@@ -205,4 +208,9 @@
 	font-family: Arial, Helvetica, sans-serif;
 	color: black;
 	font-weight: 500 !important;
+}
+
+.start-btn:hover {
+	opacity: 0.8;
+	
 }
