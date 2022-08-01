@@ -1,3 +1,7 @@
+window.onload = function WindowLoad(event) {
+    localStorage.clear();
+}
+
 
 const regions = [
     {"europe": ["GB","IS","IE","NO","SE","FI","DK","DE","BE","LU","NL","FR","ES","PT","IT","AT","CH","GR","BA","MK","TR","GE","AL","AM","CY","UA","BY","EE","LV","LT","PL","MD","RO","BG","HU","CZ","SK","SI","ME","HR","RS","XK"], 
