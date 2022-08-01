@@ -286,7 +286,7 @@ function gameAttempt(query, maxScore) {
 
     matchExpression.splice(matchExpression.length-1, 0, countryCode);
 
-    if (['00', '01', '10', '11']) {
+    if (['00', '01', '10', '11'].includes(selectedMap)) {
         matchExpression.splice(matchExpression.length-1, 0, defaultCorrect);
     } else {
         matchExpression.splice(matchExpression.length-1, 0, darkCorrect);
