@@ -374,7 +374,7 @@ function newMap(style, selection, center, zoom) {
                 'fill-color': matchExpression
             }
         }, 'admin-1-boundary-bg');
-        if (selection != world) {
+        if (selection != "world") {
             depictPlayableArea();
         }
     });
