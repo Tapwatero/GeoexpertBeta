@@ -3,9 +3,9 @@ window.onload = function WindowLoad(event) {
 }
 
 
-var regions = [
+const regions = [
     {"europe": ["GB","IS","IE","NO","SE","FI","DK","DE","BE","LU","NL","FR","ES","PT","IT","AT","CH","GR","BA","MK","TR","GE","AL","AM","CY","UA","BY","EE","LV","LT","PL","MD","RO","BG","HU","CZ","SK","SI","ME","HR","RS","XK"], 
-    "world": ["AF","AL","DZ","AD","AO","AG","AR","AM","AU","AT","AZ","BS","BH","BD","BB","BY","BE","BJ","BZ","BT","BO","BA","BW","BR","BN","BG","BF","BI","KH","CM","CA","CF","TD","CL","CN","CO","KM","CG","CD","CR","CI","HR","CY","CZ","CU","DK","DJ","DM","DO","EC","EG","SV","GQ","ER","EE","ET","FJ","FI","FR","GF","GA","GE","DE","GH","GR","GL","GD","GT","GN","GW","GY","HT","HN","HU","IS","IN","ID","IR","IQ","IE","IL","IT","JM","JP","JO","KZ","KE","KI","KP","KR","KW","KG","LA","LV","LB","LS","LR","LY","LI","LT","LU","MK","MG","MW","MY","MV","ML","MT","MH","MR","MU","MX","FM","MD","MC","MN","ME","MA","MZ","MM","NA","NR","NP","NL","NZ","NI","NE","NG","NO","OM","PK","PW","PS","PA","PG","PY","PE","PH","PL","PT","PR","QA","RO","RU","RW","KN","LC","VC","WS","ST","SA","SN","RS","SC","SL","SG","SK","SI","SB","SO","ZA","ES","LK","SD","SR","SZ","SE","SS","CH","SY","TJ","TZ","TH","TL","TG","TO","TT","TN","TR","TM","TV","UG","UA","AE","GB","US","UY","UZ","VU","VE","VN","EH","XK","YE","ZM","ZW"],
+    "world": ["AF","AL","DZ","AD","AO","AG","AR","AM","AU","AT","AZ","BS","BH","BD","BB","BY","BE","BJ","BZ","BT","BO","BA","BW","BR","BN","BG","BF","BI","KH","CM", "CA", "CF","TD","CL","CN","CO","KM","CG","CD","CR","CI","HR","CY","CZ","CU","DK","DJ","DM","DO","EC","EG","SV","GQ","ER","EE","ET","FJ","FI","FR","GF","GA","GE","DE","GH","GR","GL","GD","GT","GN","GW","GY","HT","HN","HU","IS","IN","ID","IR","IQ","IE","IL","IT","JM","JP","JO","KZ","KE","KI","KP","KR","KW","KG","LA","LV","LB","LS","LR","LY","LI","LT","LU","MK","MG","MW","MY","MV","ML","MT","MH","MR","MU","MX","FM","MD","MC","MN","ME","MA","MZ","MM","NA","NR","NP","NL","NZ","NI","NE","NG","NO","OM","PK","PW","PS","PA","PG","PY","PE","PH","PL","PT","PR","QA","RO","RU","RW","KN","LC","VC","WS","ST","SA","SN","RS","SC","SL","SG","SK","SI","SB","SO","ZA","ES","LK","SD","SR","SZ","SE","SS","CH","SY","TJ","TZ","TH","TL","TG","TO","TT","TN","TR","TM","TV","UG","UA","AE","GB","US","UY","UZ","VU","VE","VN","EH","XK","YE","ZM","ZW"],
     "south-america": ["EC","AR","VE","BR","CO","BO","PE","CL","GY","GF","PY","SR","UY"],
     "africa": ["NE","AO","EG","TN","GA","DZ","LY","CG","GQ","BJ","BW","BF","BI","CM","CF","TD","CI","CD","DJ","ET","GM","GH","GN","GW","KE","LS","LR",
     "MG","MW","ML","MA","MR","MZ","NA","NG","ER","RW","SN","SL","SO","ZA","SD","SS","SZ","TZ","TG","UG","EH","ZM","ZW"],
@@ -13,7 +13,7 @@ var regions = [
     "middle-east": ["QA","SA","AE","SY","OM","KW","PK","AZ","AF","IR","IQ","IL","PS","JO","YE","TJ","TM","UZ","KG"]},
 ]
 
-var isoCountries = {
+const isoCountries = {
     'AF': 'Afghanistan',
     'AL': 'Albania',
     'DZ': 'Algeria',
@@ -212,6 +212,7 @@ var isoCountries = {
     'ZW': 'Zimbabwe'
 };
 
+
 const maps = {
     '00': 'mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true?optimize=true',
     '10': 'mapbox://styles/tapwatero/cl54dv5qx006m14mqg5r188s7?optimize=true',
@@ -222,37 +223,25 @@ const maps = {
 }
 
 
-let data = [];
-let selectedMap;
-let hideTimer;
-let storedSelection;
-let storedZoom;
-let storedCenter;
-let nightColour = `rgb(70, 70, 70)`;
-let nightCorrect = `rgb(0, 166, 147)`;
-let lightColour = `rgb(190, 190, 190)`;
+
+// Current Countries Playing
 let currentMap;
+let selectedMap = '00';
+let pageLoaded;
+
+let skyTheme = `rgb(157, 182, 206)`;
+let lightTheme = `rgb(190, 190, 190)`;
+let darkTheme = `rgb(70, 70, 70)`;
+
+let defaultCorrect = `rgb(82,191,144)`;
+let darkCorrect = `rgb(0, 166, 147)`;
 
 
 const countriesMap = {}
 for (let [k, v] of Object.entries(isoCountries)) countriesMap[v.toLowerCase()] = k; // only god knows what this does
 
 
-function depictPlayableArea() {
-    for (country of Object.keys(isoCountries)) {
-        if (!currentMap.includes(country) && !['20', '21', '10', '11'].includes(selectedMap)) {
-            data.push({
-                code: country,
-                level: 2
-            })
-        } else if (currentMap.includes(country) && ['20', '21', '10', '11'].includes(selectedMap)) {
-            data.push({
-                code: country,
-                level: 3
-            })
-        }
-    }
-}
+let matchExpression = ['match', ['get', 'iso_3166_1']];
 
 
 function getIndex(code, level) {
@@ -266,85 +255,55 @@ function getIndex(code, level) {
     return -1;
 }
 
+function depictPlayableArea() {
+    matchExpression = ['match', ['get', 'iso_3166_1']];
+
+    for (country of Object.keys(isoCountries)) {
+        if (!currentMap.includes(country) && ['00', '01'].includes(selectedMap)) {
+            matchExpression.push(country, skyTheme);
+        } else if (currentMap.includes(country) && ['10', '11'].includes(selectedMap)) {
+            matchExpression.push(country, lightTheme);
+        } else if (currentMap.includes(country) && ['20', '21'].includes(selectedMap)) {
+            matchExpression.push(country, darkTheme);
+        }
+    }
+    
+    matchExpression.push('rgba(0, 0, 0, 0)');
+    map.setPaintProperty('countries-join', 'fill-color', matchExpression);
+}
 
 function gameAttempt(query, maxScore) {
     let countryCode = countriesMap[query.toLowerCase()];
 
+    if (countryCode == null || !currentMap.includes(countryCode)) return
 
-    if (countryCode == null) {
-        return;
-    }
-    
-    if (!currentMap.includes(countryCode)) {
-        return;
-    }
-    
-    document.getElementById("query").value = ""; // Reset input in DOM
-
-    if (['20', '21', '10', '11'].includes(selectedMap) && storedSelection != "world") {
-        data.splice(getIndex(countriesMap[query.toLowerCase()], 3), 1);
+    // Remove Match Expression Entries for Light & Dark Theme Blackout
+    let index = matchExpression.indexOf(countryCode);
+    if (index != -1) {
+        matchExpression.splice(index, 1)
+        matchExpression.splice(index, 1)
     }
 
-    data.push({
-        code: countryCode,
-        level: 1
-    })
-    delete countriesMap[query.toLowerCase()]
+
+    document.getElementById("query").value = "";
 
 
+    matchExpression.splice(matchExpression.length-1, 0, countryCode);
 
-
-    // NEW LAYERS
-    let matchExpression = ['match', ['get', 'iso_3166_1']];
-
-
-    for (const row of data) {
-        let color;
-
-        if (row.level == 1) {
-            color = `rgb(82,191,144)`;
-            if ([20, 21].includes(selectedMap)) {
-                color = nightCorrect;
-            }
-        }
-
-        if (row.level === 2) {
-            color = `rgb(157, 182, 206)`;
-        }
-
-        if (row.level === 3 && ['20', '21'].includes(selectedMap)) {
-            color = nightColour;
-        } else if (row.level === 3 && ['10', '11'].includes(selectedMap)) {
-            color = lightColour;
-        }
-
-
-
-
-        matchExpression.push(row.code, color);
-
+    if (['00', '01', '10', '11'].includes(selectedMap)) {
+        matchExpression.splice(matchExpression.length-1, 0, defaultCorrect);
+    } else {
+        matchExpression.splice(matchExpression.length-1, 0, darkCorrect);
     }
-    matchExpression.push('rgba(0, 0, 0, 0)');
-
-
-
-    map.removeLayer('countries-join')
-    map.addLayer({
-        'id': 'countries-join',
-        'type': 'fill',
-        'source': 'countries',
-        'source-layer': 'country_boundaries',
-        'paint': {
-            'fill-color': matchExpression
-        }
-    }, 'admin-1-boundary-bg');
+    map.setPaintProperty('countries-join', 'fill-color', matchExpression);
+    delete currentMap[currentMap.indexOf(countryCode)];
     updateScore(maxScore);
 }
 
 async function closeModal() {
     selectedMap = document.getElementsByClassName("theme-select")[0].value + document.getElementsByClassName("type-select")[0].value;
     hideTimer = document.getElementsByClassName("timer-select")[0].value == 0;
-    
+
     if (hideTimer == false) {
         document.getElementsByClassName("divider")[0].remove();
         document.getElementsByClassName("timer")[0].remove();
@@ -352,20 +311,28 @@ async function closeModal() {
 
     document.getElementById("modal").remove();
     document.getElementById("shadow").classList.add("fade");
-    if ('00' != selectedMap) { // Check if the selected map is not the default
+
+    if (selectedMap != '00') {
         map.remove();
-        data.length = 0;
         newMap(maps[selectedMap], storedSelection, storedCenter, storedZoom);
     }
-
+    
+    document.getElementById("shadow").classList.add("fade");
     await new Promise(res => setTimeout(res, 1000));
     document.getElementById("shadow").remove();
     document.getElementById("query").style.visibility = 'visible';
     document.getElementById("info").style.visibility = 'visible';
 }
 
+
+
+
+
+matchExpression.push("00", `rgb(0, 166, 147)`)
+matchExpression.push('rgba(0, 0, 0, 0)');
+
 function newMap(style, selection, center, zoom) {
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNTFmbGJ1YjA1YTEza3BwZDBiaGlodWEifQ.keN2QtEEire6BDUyJZr0RA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGFwd2F0ZXJvIiwiYSI6ImNsNjZ0ZDBqODBqa20zYm5ueGNyZDQ2cjEifQ.ydT-xJIzHKorhFa7wiZtCw';
     map = new mapboxgl.Map({
         container: 'map',
         style: style,
@@ -376,6 +343,11 @@ function newMap(style, selection, center, zoom) {
         pitchWithRotate: false,
         dragRotate: false
     });
+
+    currentMap = regions[0][selection];
+    storedCenter = center;
+    storedSelection = selection;
+    storedZoom = zoom;
     // Data: UN Human Development Index 2017 Europe extract
     // Source: https://ourworldindata.org/human-development-index
     map.on('load', () => {
@@ -387,44 +359,12 @@ function newMap(style, selection, center, zoom) {
             url: 'mapbox://mapbox.country-boundaries-v1'
         });
 
-        storedCenter = center;
-        storedZoom = zoom;
-        storedSelection = selection;
-        currentMap = regions[0][selection];
-        if (storedSelection != "world") { 
-            depictPlayableArea()
-        }
-
-
         // Build a GL match expression that defines the color for every vector tile feature
         // Use the ISO 3166-1 alpha 3 code as the lookup key for the country shape
-        var matchExpression = ['match', ['get', 'iso_3166_1']];
-        // Calculate color values for each country based on 'hdi' value
-        for (const row of data) {
-            var color;
-
-
-
-            if (['20', '21'].includes(selectedMap)) {
-                color = nightColour;
-            } else if (['10', '11'].includes(selectedMap)) {
-                color = lightColour;
-            }
-
-            
-            if (row.level == 2) {  // If the row has the blackout tag (L2) set the colour to 157 ,182 , 206
-                color = `rgb(157 ,182 , 206)`;
-            }
-
-            
-
-
-            matchExpression.push(row.code, color);
-        }
         // Last value is the default, used where there is no data
-        matchExpression.push('rgba(0, 0, 0, 0)');
         // Add layer from the vector tile source to create the choropleth
         // Insert it below the 'admin-1-boundary-bg' layer in the style
+
         map.addLayer({
             'id': 'countries-join',
             'type': 'fill',
@@ -434,5 +374,6 @@ function newMap(style, selection, center, zoom) {
                 'fill-color': matchExpression
             }
         }, 'admin-1-boundary-bg');
+        depictPlayableArea();
     });
 }
