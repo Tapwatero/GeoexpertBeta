@@ -1,78 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Join local JSON data with vector tile geometries</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
-    <link rel="stylesheet" href="/GeoexpertBeta/css/styles.css">
-    <script src="/GeoexpertBeta/js/main.js"></script>
-    <script src="/GeoexpertBeta/js/scoreManager.js"></script>
-    <script src="/GeoexpertBeta/js/confetti.js"></script>
-    <script src="/GeoexpertBeta/js/timer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="gameAttempt(this.value, 18)" autofocus>
-    <div id="info-wrapper">
-      <div id="info">
-         <div class="score">0/18</div>
-         <div class="divider">-</div>
-         <div class="timer">00:00</div>
+   <head>
+      <meta charset="utf-8">
+      <title>Join local JSON data with vector tile geometries</title>
+      <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">
+      <link rel="stylesheet" href="/GeoexpertBeta/css/styles.css">
+      <script src="/GeoexpertBeta/js/main.js"></script>
+      <script src="/GeoexpertBeta/js/scoreManager.js"></script>
+      <script src="/GeoexpertBeta/js/confetti.js"></script>
+      <script src="/GeoexpertBeta/js/timer.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+      <style>
+         body {
+         margin: 0;
+         padding: 0;
+         }
+         #map {
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         width: 100%;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="map"></div>
+      <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="gameAttempt(this.value, 18)" autofocus>
+      <div id="info-wrapper">
+         <div id="info">
+            <div class="score">0/18</div>
+            <div class="divider">-</div>
+            <div class="timer">00:00</div>
+         </div>
       </div>
-   </div>
-   <div id="shadow"></div>
-   <div id="modal">
-      <div class="settings">
-         <h1 class="title">Geoexpert</h1>
-         <hr class="modal-divider">
-         <div class="inputs">
-           <label class="theme-label" for="">
-             Theme:
-             <select class="theme-select">
-                <option value="0">Sky</option>
-                <option value="1">Light</option>
-                <option value="2">Dark</option>
-             </select>
-          </label>
-            <label class="type-label" for="">
-               Type:
-               <select class="type-select">
+      <div id="shadow"></div>
+      <div id="modal">
+         <div class="settings">
+            <h1 class="title">Geoexpert Asia Menu</h1>
+            <hr>
+            <div class="inputs">
+               <h1 class="label">Type</h1>
+               <select class="form-select theme-select" aria-label="Default select example">
+                  <option value="0">Sky</option>
+                  <option value="1">Light</option>
+                  <option value="2">Dark</option>
+               </select>
+               <h1 class="label">Theme</h1>
+               <select class="form-select type-select" aria-label="Default select example">
                   <option value="0">Flat</option>
                   <option value="1">Globe</option>
                </select>
-            </label>
-            <label class="timer-label" for="">
-               Timer:
-               <select class="timer-select">
+               <h1 class="label">Timer</h1>
+               <select class="form-select timer-select" aria-label="Default select example">
                   <option value="0">Enabled</option>
                   <option value="1">Disabled</option>
                </select>
-            </label>
-            <hr class="modal-divider">
-            <div class="btn-container">
-             <button type="button" onclick="closeModal()" class="start-btn">Start</button>
-             </div>
-         </div>`
+            </div>
+            <hr>
+            <button type="button" onclick="closeModal()" class="btn btn-outline-success">Start Game</button> 
+         </div>
       </div>
-   </div>
-    <script>
-      newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true", "asia", [102.5, 27.5], 3);
-    </script>
-  </body>
+      <script>
+         newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true", "asia", [102.5, 27.5], 3);
+      </script>
+   </body>
 </html>

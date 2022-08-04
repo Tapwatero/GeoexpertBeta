@@ -38,39 +38,31 @@
    </div>
    <div id="shadow"></div>
    <div id="modal">
-      <div class="settings">
-         <h1 class="title">Geoexpert</h1>
-         <hr class="modal-divider">
-         <div class="inputs">
-           <label class="theme-label" for="">
-             Theme:
-             <select class="theme-select">
-                <option value="0">Sky</option>
-                <option value="1">Light</option>
-                <option value="2">Dark</option>
-             </select>
-          </label>
-            <label class="type-label" for="">
-               Type:
-               <select class="type-select">
-                  <option value="0">Flat</option>
-                  <option value="1">Globe</option>
-               </select>
-            </label>
-            <label class="timer-label" for="">
-               Timer:
-               <select class="timer-select">
-                  <option value="0">Enabled</option>
-                  <option value="1">Disabled</option>
-               </select>
-            </label>
-            <hr class="modal-divider">
-            <div class="btn-container">
-             <button type="button" onclick="closeModal()" class="start-btn">Start</button>
-             </div>
-         </div>
-      </div>
-   </div>
+    <div class="settings">
+       <h1 class="title">Geoexpert Africa Menu</h1>
+       <hr>
+       <div class="inputs">
+          <h1 class="label">Type</h1>
+          <select class="form-select theme-select" aria-label="Default select example">
+             <option value="0">Sky</option>
+             <option value="1">Light</option>
+             <option value="2">Dark</option>
+          </select>
+          <h1 class="label">Theme</h1>
+          <select class="form-select type-select" aria-label="Default select example">
+             <option value="0">Flat</option>
+             <option value="1">Globe</option>
+          </select>
+          <h1 class="label">Timer</h1>
+          <select class="form-select timer-select" aria-label="Default select example">
+             <option value="0">Enabled</option>
+             <option value="1">Disabled</option>
+          </select>
+       </div>
+       <hr>
+       <button type="button" onclick="closeModal()" class="btn btn-outline-success">Start Game</button> 
+    </div>
+ </div>
     <script>
       newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true", "africa", [25, 2.5], 2.5);
     </script>
