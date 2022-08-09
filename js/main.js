@@ -121,7 +121,7 @@ const isoCapitals = {
     'nouakchott': 'MR',
     'port louis': 'MU',
     'mexico city': 'MX',
-    'chișinău': 'MD',
+    'chisinau': 'MD',
     'monaco': 'MC',
     'ulan bator': 'MN',
     'rabat': 'MA',
