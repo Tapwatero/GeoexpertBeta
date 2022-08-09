@@ -13,6 +13,192 @@ const regions = [
     "middle-east": ["QA","SA","AE","SY","OM","KW","PK","AZ","AF","IR","IQ","IL","PS","JO","YE","TJ","TM","UZ","KG"]},
 ]
 
+const isoCapitals = {
+    'kabul': 'AF',
+    'tirana': 'AL',
+    'algiers': 'DZ',
+    'luanda': 'AO',
+    'saint john\'s': 'AG',
+    'buenos aires': 'AR',
+    'yerevan': 'AM',
+    'canberra': 'AU',
+    'vienna': 'AT',
+    'baku': 'AZ',
+    'manama': 'BH',
+    'dhaka': 'BD',
+    'bridgetown': 'BB',
+    'minsk': 'BY',
+    'brussels': 'BE',
+    'porto-novo': 'BJ',
+    'belmopan': 'BZ',
+    'thimphu': 'BT',
+    'sucre': 'BO',
+    'sarajevo': 'BA',
+    'gaborone': 'BW',
+    'brasília': 'BR',
+    'bandar seri begawan': 'BN',
+    'sofia': 'BG',
+    'ouagadougou': 'BF',
+    'bujumbura': 'BI',
+    'phnom penh': 'KH',
+    'yaoundé': 'CM',
+    'ottawa': 'CA',
+    'bangui': 'CF',
+    'n\'djamena': 'TD',
+    'santiago': 'CL',
+    'beijing': 'CN',
+    'bogotá': 'CO',
+    'moroni': 'KM',
+    'kinshasa': 'CD',
+    'san josé': 'CR',
+    'yamoussoukro': 'CI',
+    'zagreb': 'HR',
+    'nicosia': 'CY',
+    'prague': 'CZ',
+    'havana': 'CU',
+    'copenhagen': 'DK',
+    'djibouti': 'DJ',
+    'roseau': 'DM',
+    'santo domingo': 'DO',
+    'quito': 'EC',
+    'cairo': 'EG',
+    'san salvador': 'SV',
+    'malabo': 'GQ',
+    'asmara': 'ER',
+    'tallinn': 'EE',
+    'addis ababa': 'ET',
+    'suva': 'FJ',
+    'helsinki': 'FI',
+    'paris': 'FR',
+    'libreville': 'GA',
+    'tbilisi': 'GE',
+    'berlin': 'DE',
+    'accra': 'GH',
+    'athens': 'GR',
+    'nuuk': 'GL',
+    'st. george\'s': 'GD',
+    'guatemala city': 'GT',
+    'conakry': 'GN',
+    'bissau': 'GW',
+    'georgetown': 'GY',
+    'port-au-prince': 'HT',
+    'tegucigalpa': 'HN',
+    'budapest': 'HU',
+    'reykjavik': 'IS',
+    'new delhi': 'IN',
+    'jakarta': 'ID',
+    'tehran': 'IR',
+    'baghdad': 'IQ',
+    'dublin': 'IE',
+    'jerusalem': 'IL',
+    'rome': 'IT',
+    'kingston': 'JM',
+    'tokyo': 'JP',
+    'amman': 'JO',
+    'astana': 'KZ',
+    'nairobi': 'KE',
+    'south tarawa': 'KI',
+    'pyongyang': 'KP',
+    'seoul': 'KR',
+    'kuwait city': 'KW',
+    'bishkek': 'KG',
+    'vientiane': 'LA',
+    'riga': 'LV',
+    'beirut': 'LB',
+    'maseru': 'LS',
+    'monrovia': 'LR',
+    'tripoli': 'LY',
+    'vaduz': 'LI',
+    'vilnius': 'LT',
+    'luxembourg': 'LU',
+    'antananarivo': 'MG',
+    'lilongwe': 'MW',
+    'kuala lumpur': 'MY',
+    'malé': 'MV',
+    'bamako': 'ML',
+    'valletta': 'MT',
+    'majuro': 'MH',
+    'nouakchott': 'MR',
+    'port louis': 'MU',
+    'mexico city': 'MX',
+    'chișinău': 'MD',
+    'monaco': 'MC',
+    'ulan bator': 'MN',
+    'rabat': 'MA',
+    'maputo': 'MZ',
+    'windhoek': 'NA',
+    'yaren': 'NR',
+    'kathmandu': 'NP',
+    'amsterdam': 'NL',
+    'wellington': 'NZ',
+    'managua': 'NI',
+    'niamey': 'NE',
+    'abuja': 'NG',
+    'oslo': 'NO',
+    'muscat': 'OM',
+    'islamabad': 'PK',
+    'ngerulmud': 'PW',
+    'panama city': 'PA',
+    'port moresby': 'PG',
+    'asunción': 'PY',
+    'lima': 'PE',
+    'manila': 'PH',
+    'warsaw': 'PL',
+    'lisbon': 'PT',
+    'san juan': 'PR',
+    'doha': 'QA',
+    'bucharest': 'RO',
+    'moscow': 'RU',
+    'kigali': 'RW',
+    'basseterre': 'KN',
+    'castries': 'LC',
+    'kingstown': 'VC',
+    'apia': 'WS',
+    'riyadh': 'SA',
+    'dakar': 'SN',
+    'belgrade': 'RS',
+    'victoria': 'SC',
+    'freetown': 'SL',
+    'singapore': 'SG',
+    'bratislava': 'SK',
+    'ljubljana': 'SI',
+    'honiara': 'SB',
+    'mogadishu': 'SO',
+    'pretoria': 'ZA',
+    'madrid': 'ES',
+    'colombo': 'LK',
+    'khartoum': 'SD',
+    'paramaribo': 'SR',
+    'stockholm': 'SE',
+    'juba': 'SS',
+    'bern': 'CH',
+    'damascus': 'SY',
+    'dushanbe': 'TJ',
+    'dodoma': 'TZ',
+    'bangkok': 'TH',
+    'lomé': 'TG',
+    'nuku\'alofa': 'TO',
+    'port of spain': 'TT',
+    'tunis': 'TN',
+    'ankara': 'TR',
+    'ashgabat': 'TM',
+    'funafuti': 'TV',
+    'kampala': 'UG',
+    'kyiv': 'UA',
+    'abu dhabi': 'AE',
+    'london': 'GB',
+    'washington d.c.': 'US',
+    'montevideo': 'UY',
+    'tashkent': 'UZ',
+    'port vila': 'VU',
+    'caracas': 'VE',
+    'hanoi': 'VN',
+    'el aaiún': 'EH',
+    'sana\'a': 'YE',
+    'lusaka': 'ZM',
+    'harare': 'ZW'
+}
+
 const isoCountries = {
     'AF': 'Afghanistan',
     'AL': 'Albania',
@@ -272,7 +458,7 @@ function depictPlayableArea() {
     map.setPaintProperty('countries-join', 'fill-color', matchExpression);
 }
 
-function gameAttempt(query, maxScore) {
+function countryGameAttempt(query, maxScore) {
     let countryCode = countriesMap[query.toLowerCase()];
 
     if (countryCode == null || !currentMap.includes(countryCode)) return
@@ -299,6 +485,35 @@ function gameAttempt(query, maxScore) {
     delete currentMap[currentMap.indexOf(countryCode)];
     updateScore(maxScore);
 }
+
+function capitalGameAttempt(query, maxScore) {
+    let capitalCode = isoCapitals[query.toLowerCase()];
+
+    if (capitalCode == null || !currentMap.includes(capitalCode)) {return}
+
+    let index = matchExpression.indexOf(capitalCode);
+    if (index != -1) {
+        matchExpression.splice(index, 1)
+        matchExpression.splice(index, 1)
+    }
+
+
+    document.getElementById("query").value = "";
+
+
+    matchExpression.splice(matchExpression.length-1, 0, capitalCode);
+
+    if (['00', '01', '10', '11'].includes(selectedMap)) {
+        matchExpression.splice(matchExpression.length-1, 0, defaultCorrect);
+    } else {
+        matchExpression.splice(matchExpression.length-1, 0, darkCorrect);
+    }
+    map.setPaintProperty('countries-join', 'fill-color', matchExpression);
+    delete currentMap[currentMap.indexOf(capitalCode)];
+    updateScore(maxScore);
+}
+
+
 
 async function closeModal() {
     selectedMap = document.getElementsByClassName("theme-select")[0].value + document.getElementsByClassName("type-select")[0].value;

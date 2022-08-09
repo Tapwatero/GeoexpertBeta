@@ -29,10 +29,10 @@
   </head>
   <body>
     <div id="map"></div>
-    <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="gameAttempt(this.value, 42)" autofocus>
+    <input autocomplete="off" maxlength=50 style="text-transform: capitalize;" type="text" class="query" id="query" onkeyup="capitalGameAttempt(this.value, 196)">
     <div id="info-wrapper">
       <div id="info">
-         <div class="score">0/42</div>
+         <div class="score">0/196</div>
          <div class="divider">-</div>
          <div class="timer">00:00</div>
       </div>
@@ -40,7 +40,7 @@
    <div id="shadow"></div>
    <div id="modal">
     <div class="settings">
-       <h1 class="title">Geoexpert Europe Menu</h1>
+       <h1 class="title">Geoexpert World Menu</h1>
        <hr>
        <div class="inputs">
           <h1 class="label">Type</h1>
@@ -65,7 +65,7 @@
     </div>
  </div>
     <script>
-      newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true", "europe", [20, 57], 3);
+      newMap("mapbox://styles/tapwatero/cl554vgs4004v14n2bd9fohbm?optimize=true", "world", [25, 40], 1);
     </script>
   </body>
 </html>
