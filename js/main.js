@@ -1,5 +1,5 @@
 window.onload = function WindowLoad(event) {
-    localStorage.setItem("score", 0);
+    localStorage.removeItem("score");
 }
 
 

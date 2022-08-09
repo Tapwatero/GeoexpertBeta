@@ -7,10 +7,10 @@ function updateScore(maxScore) {
         document.getElementById("query").disabled = true;
       }
     } else {
+      if (hideTimer) {
+        startTimer();
+      }
       localStorage.setItem("score", 1);
-    }
-    if (hideTimer) {
-      startTimer();
     }
     setScore(localStorage.getItem("score"), maxScore);
   }
